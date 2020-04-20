@@ -101,6 +101,25 @@ public class Array<E> {
 
 
     /**
+     * 获取最后一个元素
+     *
+     * @return
+     */
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    /**
+     * 获取第一个元素
+     *
+     * @return
+     */
+    public E getFirst() {
+        return get(0);
+    }
+
+
+    /**
      * 在指定索引位置设置元素
      *
      * @param element
@@ -131,21 +150,24 @@ public class Array<E> {
      * 移除指定位置的元素
      *
      * @param index
+     * @return
      */
-    public void rmIndexAt(int index) {
+    public E rmIndexAt(int index) {
         //判断...
         for (int i = 0; i < size - index - 1; i++) {
             data[i] = data[index + i + 1];
         }
+        E e = data[size - 1];
         data[size - 1] = null;
         size--;
         if (size == data.length / 2) {
             resize(data.length / 2);
         }
+        return e;
     }
 
-    public void rmLast() {
-        rmIndexAt(data.length - 1);
+    public E rmLast() {
+        return rmIndexAt(data.length - 1);
     }
 
 
@@ -195,5 +217,13 @@ public class Array<E> {
 
         System.out.println(JSON.toJSONString(array.data, true));
         System.out.println(JSON.toJSONString(array.size, true));
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public int getSize() {
+        return size;
     }
 }
