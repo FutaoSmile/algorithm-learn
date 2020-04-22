@@ -6,67 +6,51 @@ package com.futao.algorithm.link;
  */
 public class Main {
     public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<>();
-        System.out.println(list);
-        list.addFirst(1);
-        System.out.println(list);
-        list.addFirst(2);
-        System.out.println(list);
-        list.addFirst(3);
-        System.out.println(list);
-
-//        list.addLast(2);
-//        System.out.println(list);
-//        list.addLast(3);
-//        System.out.println(list);
-
-        list.add(2, 999);
-        System.out.println(list);
-
-        System.out.println("-------");
-
-        list.rmFirst();
-        System.out.println(list);
-
-        list.rmFirst();
-        System.out.println(list);
-        list.rmFirst();
-        System.out.println(list);
-        list.rmFirst();
-        System.out.println(list);
-        list.rmFirst();
-        System.out.println(list);
+        linkedListSuperTest();
+//        rmTest();
+    }
 
 
-        System.out.println("-------");
-
-        list.addFirst(1);
-        System.out.println(list);
-        list.addFirst(2);
-        System.out.println(list);
-        list.addFirst(3);
-        System.out.println(list);
-
-        list.rmLast();
-        System.out.println(list);
-
-        list.rmLast();
-        System.out.println(list);
-
-        list.rmLast();
-        System.out.println(list);
-
-        System.out.println("------------------------");
+    public static void rmTest() {
+        LinkedListSuper<Integer> listSuper = new LinkedListSuper<>();
         for (int i = 0; i < 10; i++) {
-            list.addLast(i);
-            System.out.println(list);
+            listSuper.addLast(i);
         }
+        System.out.println(listSuper);
+        listSuper.rmAt(0);
+        System.out.println(listSuper);
+
+        listSuper.rmAt(8);
+        System.out.println(listSuper);
+
+
+    }
+
+
+    public static void linkedListSuperTest() {
+        LinkedListSuper<Integer> listSuper = new LinkedListSuper<>();
+        System.out.println(listSuper);
+        listSuper.add(123, 0);
+        System.out.println(listSuper);
+        listSuper.set(123131, 0);
+        System.out.println(listSuper);
 
         for (int i = 0; i < 10; i++) {
-            list.addFirst(i);
-            System.out.println(list);
+            listSuper.addFirst(i);
+            System.out.println(listSuper);
         }
 
+        listSuper.set(999999, 5);
 
+        System.out.println(listSuper);
+
+        for (int i = 0; i < 10; i++) {
+            listSuper.addLast(i);
+            System.out.println(listSuper);
+        }
+        for (int i = 5; i < 15; i++) {
+            listSuper.rmAt(i);
+            System.out.println(listSuper);
+        }
     }
 }

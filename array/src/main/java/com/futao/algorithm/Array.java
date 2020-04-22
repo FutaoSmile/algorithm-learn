@@ -153,13 +153,16 @@ public class Array<E> {
      * @return
      */
     public E rmIndexAt(int index) {
-        //判断...
+        //判断...省略
+
+        //将index后面的元素都往前移动一位
         for (int i = 0; i < size - index - 1; i++) {
             data[i] = data[index + i + 1];
         }
         E e = data[size - 1];
         data[size - 1] = null;
         size--;
+        //容量缩减
         if (size == data.length / 2) {
             resize(data.length / 2);
         }
@@ -168,6 +171,10 @@ public class Array<E> {
 
     public E rmLast() {
         return rmIndexAt(data.length - 1);
+    }
+
+    public E rmFirst() {
+        return rmIndexAt(0);
     }
 
 

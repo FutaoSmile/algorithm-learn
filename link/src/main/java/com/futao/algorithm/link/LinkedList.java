@@ -4,7 +4,7 @@ package com.futao.algorithm.link;
  * @author futao
  * Created on 2020/4/21.
  */
-public class LinkedList<E> {
+public class LinkedList<E> implements ILinkedList<E> {
 
     private class Node {
         public E e;
@@ -24,13 +24,13 @@ public class LinkedList<E> {
     private int size;
     private Node head;
 
-
+    @Override
     public void addFirst(E e) {
         head = new Node(e, head);
         size++;
     }
 
-
+    @Override
     public void addLast(E e) {
         Node cNode = this.head;
         if (cNode == null) {
@@ -48,7 +48,13 @@ public class LinkedList<E> {
 
     }
 
-    public void add(int index, E e) {
+    @Override
+    public E rmAt(int index) {
+        return null;
+    }
+
+    @Override
+    public void add(E e, int index) {
         if (index < 0 || index > size) {
             throw new RuntimeException("添加失败，参数错误，超出范围");
         }
@@ -65,7 +71,7 @@ public class LinkedList<E> {
         size++;
     }
 
-
+    @Override
     public E rmLast() {
         Node cNode = this.head;
         //如果链表为空,则返回空
@@ -91,6 +97,42 @@ public class LinkedList<E> {
         }
     }
 
+    @Override
+    public boolean contains(E e) {
+        return false;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+    @Override
+    public E get(int index) {
+        return null;
+    }
+
+    @Override
+    public E getFirst() {
+        return null;
+    }
+
+    @Override
+    public E getLast() {
+        return null;
+    }
+
+    @Override
+    public void set(E e, int index) {
+
+    }
+
+    @Override
+    public int getSize() {
+        return 0;
+    }
+
+    @Override
     public E rmFirst() {
         Node hNode = this.head;
         if (hNode == null) {
