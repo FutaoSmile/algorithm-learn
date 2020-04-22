@@ -4,6 +4,7 @@ import com.futao.queue.ArrayQueue;
 import com.futao.queue.LoopQueue;
 import com.futao.queue.Queue;
 import com.futao.stack.ArrayStack;
+import com.futao.stack.LinkedStack;
 import com.futao.stack.Stack;
 
 /**
@@ -12,7 +13,8 @@ import com.futao.stack.Stack;
  */
 public class Main {
     public static void main(String[] args) {
-        arrayQueueTest();
+        arrayStackTest(new LinkedStack<>());
+//        arrayQueueTest();
     }
 
     public static void arrayQueueTest() {
@@ -36,8 +38,8 @@ public class Main {
     }
 
 
-    public static void arrayStackTest() {
-        Stack<Integer> stack = new ArrayStack<>(20);
+    public static void arrayStackTest(Stack<Integer> stack) {
+
         for (int i = 0; i < 10; i++) {
             stack.push(i);
             System.out.println(stack);

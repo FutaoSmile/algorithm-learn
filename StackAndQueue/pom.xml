@@ -17,6 +17,10 @@
             <groupId>com.futao</groupId>
             <artifactId>array</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.futao</groupId>
+            <artifactId>link</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
