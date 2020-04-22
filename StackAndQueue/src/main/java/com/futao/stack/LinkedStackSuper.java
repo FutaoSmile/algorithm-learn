@@ -1,31 +1,29 @@
 package com.futao.stack;
 
 import com.futao.algorithm.link.ILinkedList;
+import com.futao.algorithm.link.LinkedList;
 import com.futao.algorithm.link.LinkedListSuper;
 
 /**
- * 这个类的实现是把LinkedList的尾端作为栈顶，这不是好的实现，因为每次入栈和出栈都是处理LinkedList中最后一个元素，这样的时间复杂度是O(n)
- * 我们应该使用LinkedList的首段作为栈顶，这样每次都是操作LinkedList的首位元素，时间复杂度是O(1);
- *
  * @author futao
  * @date 2020/4/22
  */
-public class LinkedStack<E> implements Stack<E> {
+public class LinkedStackSuper<E> implements Stack<E> {
 
     private ILinkedList<E> linkedList;
 
-    public LinkedStack() {
+    public LinkedStackSuper() {
         this.linkedList = new LinkedListSuper<>();
     }
 
     @Override
     public void push(E e) {
-        linkedList.addLast(e);
+        linkedList.addFirst(e);
     }
 
     @Override
     public E pop() {
-        return linkedList.rmLast();
+        return linkedList.rmFirst();
     }
 
     @Override
@@ -35,7 +33,7 @@ public class LinkedStack<E> implements Stack<E> {
 
     @Override
     public E peek() {
-        return linkedList.getLast();
+        return linkedList.getFirst();
     }
 
     @Override
@@ -43,11 +41,10 @@ public class LinkedStack<E> implements Stack<E> {
         return linkedList.getSize();
     }
 
-
     @Override
     public String toString() {
         StringBuffer buffer = new StringBuffer();
-        buffer.append("[");
+        buffer.append("top [");
         for (int i = 0; i < linkedList.getSize(); i++) {
             E e = linkedList.get(i);
             buffer.append(e);
@@ -55,7 +52,7 @@ public class LinkedStack<E> implements Stack<E> {
                 buffer.append(", ");
             }
         }
-        buffer.append("] top");
+        buffer.append("] ");
         return buffer.toString();
     }
 }

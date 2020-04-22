@@ -5,7 +5,11 @@ import com.futao.queue.LoopQueue;
 import com.futao.queue.Queue;
 import com.futao.stack.ArrayStack;
 import com.futao.stack.LinkedStack;
+import com.futao.stack.LinkedStackSuper;
 import com.futao.stack.Stack;
+
+import java.util.Collections;
+import java.util.stream.IntStream;
 
 /**
  * @author futao
@@ -14,8 +18,23 @@ import com.futao.stack.Stack;
 public class Main {
     public static void main(String[] args) {
 
-        arrayStackTest(new LinkedStack<>());
+//        arrayStackTest(new LinkedStack<>());
+//        arrayStackTest(new LinkedStackSuper<>());
 //        arrayQueueTest();
+        benchMark();
+    }
+
+
+    public static void benchMark() {
+        long st = System.currentTimeMillis();
+        int endInclusive = 100000;
+        IntStream.rangeClosed(1, endInclusive).forEach(new LinkedStack<>()::push);
+        System.out.println(System.currentTimeMillis() - st);
+
+
+        long st2 = System.currentTimeMillis();
+        IntStream.rangeClosed(1, endInclusive).forEach(new LinkedStackSuper<>()::push);
+        System.out.println(System.currentTimeMillis() - st2);
     }
 
     public static void arrayQueueTest() {
